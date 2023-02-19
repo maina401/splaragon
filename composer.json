@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "maina401/splaragon",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "Tailwind CSS Admin Starter Kit Based on Laravel 10 and Argon UI Kit",
+    "keywords": ["framework", "laravel","Argon UI","Tailwind CSS"],
     "license": "MIT",
     "require": {
         "php": "^8.1",

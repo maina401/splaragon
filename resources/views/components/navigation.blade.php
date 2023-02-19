@@ -66,7 +66,7 @@
                     <li class="relative flex items-center pr-2">
                         <p class="hidden transform-dropdown-show"></p>
                         <a dropdown-trigger href="javascript:;"
-                           class="block p-0 text-sm text-white transition-all ease-nav-brand" aria-expanded="false">
+                           class="block p-0 text-sm text-dark dark:text-white transition-all ease-nav-brand" aria-expanded="false">
                             <i class="cursor-pointer fa fa-user sm:mr-1" aria-hidden="true"></i>
                             <span class="hidden sm:inline">{{auth()->user()->name}}</span>
                         </a>
