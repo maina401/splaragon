@@ -118,5 +118,5 @@ This project is open source software licensed under the [MIT](https://choosealic
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](/public/Screenshot 2023-02-19 124753.png)
 
