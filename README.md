@@ -46,13 +46,13 @@ This Tailwind CSS Admin Starter Kit is based on the Argon Dashboard and Splade, 
 Clone the project
 
 ```bash
-  git clone https://maina401/splaragon.git
+  composer create-project maina401/splaragon --prefer-dist your-project-name
 ```
 
 Go to the project directory
 
 ```bash
-  cd splaragon
+  cd your-project-name
 ```
 
 Install dependencies
@@ -69,7 +69,7 @@ Setup Database
 Seed Users and Roles
 
 ```bash
-  php artisan db:seed
+  php artisan migrate && php artisan db:seed
 ```
 
 And away you go ...
