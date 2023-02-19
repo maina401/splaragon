@@ -37,6 +37,7 @@ This Tailwind CSS Admin Starter Kit is based on the Argon Dashboard and Splade, 
 - Beautiful form components with Eloquent Model binding, validation, datetime picker, searchable and taggable selects, and async uploads
 - A DataTables-like table component that supports auto-fill, searching, filtering, sorting, toggling, and pagination
 - A dashboard with basic statistics
+- Authentication, User registration, Password reset, Email verification, 2FA, and more
 - User profile and settings pages
 - CRUD examples for managing users and roles
 - many more features check them out
@@ -46,24 +47,13 @@ This Tailwind CSS Admin Starter Kit is based on the Argon Dashboard and Splade, 
 Clone the project
 
 ```bash
-  composer create-project maina401/splaragon --prefer-dist your-project-name
+  composer create-project maina401/splaragon your-project-name dev-master
 ```
 
 Go to the project directory
 
 ```bash
   cd your-project-name
-```
-
-Install dependencies
-
-```bash
-  composer install
-```
-Setup Database
-
-```bash
-  cp .env.example .env && php artisan key:generate
 ```
 
 Seed Users and Roles
