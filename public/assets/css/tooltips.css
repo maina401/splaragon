@@ -1,0 +1,1 @@
+#tooltip[data-popper-placement^=top]>[data-popper-arrow]{bottom:-4px}#tooltip[data-popper-placement^=bottom]>[data-popper-arrow]{top:-4px}#tooltip[data-popper-placement^=left]>[data-popper-arrow]{right:-4px}#tooltip[data-popper-placement^=right]>[data-popper-arrow]{left:-4px}
