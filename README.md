@@ -118,5 +118,5 @@ This project is open source software licensed under the [MIT](https://choosealic
 
 ## Screenshots
 
-![App Screenshot](/public/Screenshot 2023-02-19 124753.png)
+![App Screenshot](https://cdn.jsdelivr.net/gh/maina401/splaragon/public/Screenshot%202023-02-19%20124753.png)
 
