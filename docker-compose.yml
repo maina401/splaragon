@@ -1,0 +1,97 @@
+version: '3.8'
+services:
+
+    # Application
+    app:
+        build:
+            context: .
+            dockerfile: docker/app.dockerfile
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - "database"
+        deploy:
+            mode: replicated
+            replicas: 5
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 3
+                window: 120s
+
+
+    # DB Balancer
+    db_balancer:
+        image: nginx:1.21
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/db_balancer.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/nginx/db_balancer/logs/:/var/log/nginx/
+        depends_on:
+            - "app"
+
+
+    # Web Server
+    web:
+        image: nginx:1.21
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/nginx/logs/:/var/log/nginx/
+        depends_on:
+            - "app"
+        deploy:
+            mode: replicated
+            replicas: 5
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 3
+                window: 120s
+
+    # Web Balancer
+    web_balancer:
+        image: nginx:1.21
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/web_balancer.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/nginx/web_balancer/logs/:/var/log/nginx/
+        depends_on:
+            - "web"
+        ports:
+            -   "9091:80"
+
+    # Database
+    database:
+        image: mysql:8.0
+        volumes:
+            - dbdata:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_USER: ${DB_USERNAME}
+        deploy:
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 3
+                window: 120s
+
+    # Database management
+    pma:
+        image: phpmyadmin:5.1
+        environment:
+            PMA_HOST: database
+            PMA_PORT: ${DB_PORT}
+        depends_on:
+            - database
+        ports:
+            - "9988:80"
+
+volumes:
+    dbdata:
