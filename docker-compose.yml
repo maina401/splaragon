@@ -13,7 +13,7 @@ services:
             - "database"
         deploy:
             mode: replicated
-            replicas: 5
+            replicas: 2
             restart_policy:
                 condition: on-failure
                 delay: 5s
@@ -45,7 +45,7 @@ services:
             - "app"
         deploy:
             mode: replicated
-            replicas: 5
+            replicas: 2
             restart_policy:
                 condition: on-failure
                 delay: 5s
@@ -91,7 +91,7 @@ services:
         depends_on:
             - database
         ports:
-            - "9988:80"
+            - "8988:80"
 
 volumes:
     dbdata:
