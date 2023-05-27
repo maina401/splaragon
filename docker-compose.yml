@@ -63,7 +63,7 @@ services:
         depends_on:
             - "web"
         ports:
-            -   "9091:80"
+            -   "80"
 
     # Database
     database:
@@ -91,7 +91,7 @@ services:
         depends_on:
             - database
         ports:
-            - "8988:80"
+            - "80"
 
 volumes:
     dbdata:
