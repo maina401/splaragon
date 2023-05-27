@@ -16,3 +16,5 @@ FROM composer:2.5.7 AS composer
 
 RUN composer install --no-dev --no-interaction --no-progress --no-suggest --optimize-autoloader
 
+RUN chown -R www-data:www-data /var/www/html
+
