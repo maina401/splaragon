@@ -12,7 +12,17 @@ RUN apt-get update && apt-get install -y  \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql bcmath exif pcntl zip \
     && apt-get clean
 
-FROM composer:2.5.7 AS composer
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    zip \
+    unzip \
+    && apt-get clean
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+WORKDIR /var/www/html
+
+COPY . /var/www/html
 
 RUN composer install --no-dev --no-interaction --no-progress --no-suggest --optimize-autoloader
 
