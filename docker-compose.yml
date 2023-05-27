@@ -75,6 +75,7 @@ services:
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
             MYSQL_PASSWORD: ${DB_PASSWORD}
             MYSQL_USER: ${DB_USERNAME}
+            MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
         deploy:
             restart_policy:
                 condition: on-failure
