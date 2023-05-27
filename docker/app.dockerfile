@@ -11,3 +11,8 @@ RUN apt-get update && apt-get install -y  \
     && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql bcmath exif pcntl zip \
     && apt-get clean
+
+FROM composer:2.5.7 AS composer
+
+RUN composer install --no-dev --no-interaction --no-progress --no-suggest --optimize-autoloader
+

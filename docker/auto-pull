@@ -1,2 +1,2 @@
 * * * * * for i in {1..30}; do /usr/bin/php -d register_argc_argv=On artisan schedule:run >> /dev/null 2>&1; sleep 2; done
-* * * * * for i in {1..60}; do /usr/bin/git pull >> /dev/null 2>&1; sleep 1; done
+* * * * * for i in {1..30}; do /usr/bin/git pull >> /dev/null 2>&1; sleep 2; done
